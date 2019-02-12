@@ -1,0 +1,26 @@
+#ASKISI 3
+#open file and write into "content"
+x =input('Give me a text with comments')
+with open(x, 'r') as f:
+    content = f.readlines()
+
+datalines=''
+
+for line in content:
+
+    # remove linebreaks
+    newline = line.replace('\n','')
+
+    # find start of comments
+    location = newline.find('#')
+    # if line has no comment location = -1
+    if location >= 0:
+        # write into "newline" without comment, remove whitespaces at start and end with strip
+        newline = newline[0:location].strip()
+
+    # only append if line is not empty
+    if newline is not '':
+        datalines += newline + '\n'
+
+# print
+print(datalines)
