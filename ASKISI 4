@@ -1,0 +1,61 @@
+#askisi 4
+apotelesma = ""
+
+#I define the functions and returning the value
+def plus():
+    return "+"
+
+def minus():
+    return "-"
+
+def times():
+    return "*"
+
+def zero():
+    return "0"
+
+def one():
+    return "1"
+
+def two():
+    return "2"
+
+def three():
+    return "3"
+
+def four():
+    return "4"
+
+def five():
+    return "5"
+
+def six():
+    return "6"
+
+def seven():
+    return "7"
+
+def eight():
+    return "8"
+
+def nine():
+    return "9"
+
+#CallFunc dictionary in order to call the functions inside the string
+CallFunc = {'plus':plus, "minus":minus, "times":times, "zero":zero, "one":one, "two":two, "three":three, "four":four, "five":five, "six":six, "seven":seven, "eight":eight, "nine":nine}
+
+#user's input
+entoli = input("Dose tis prakseis: ")
+
+#splitting the equation
+prakseis = entoli.split("(")
+
+
+#substracting 1 from len because the last clue are the brackets
+for i in range(len(prakseis) - 1):
+    #adding in apotelesma the returning value of the function
+    apotelesma += CallFunc[prakseis[i]]()
+
+#using the eval in order to do the equations inside the string "apot"
+TelikoApotelesma = eval(apotelesma)
+print(TelikoApotelesma)
