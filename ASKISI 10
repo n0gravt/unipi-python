@@ -1,0 +1,25 @@
+#askisi 10
+import requests
+from bs4 import *
+from urllib import request
+
+url = input("Enter url you want to crawl:")
+#url_get = requests.get(url)
+def info_about_web_pages(url):
+   x=0
+   y=0
+   url_get = requests.get(url)
+   plain_text = url_get.text
+   soup = BeautifulSoup(plain_text,"html.parser" )
+   print(str(soup.prettify()))
+   links = set()
+   for about in soup.findAll('br'):
+       href = about.get('href')
+       links.update([href])
+  # html = BeautifulSoup(url_get.text,'lxml')
+   x=len(soup.find_all('br'))
+   y=len(soup.find_all('p'))
+
+   print ('Ola ta <br> ths selidas einai' , x)
+   print ('Ola ta <p> ths selidas einai' , y)
+info_about_web_pages(url)
